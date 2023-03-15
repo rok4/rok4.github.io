@@ -1,0 +1,40 @@
+site_name: "Projet ROK4"
+site_author: IGN
+site_url: https://rok4.github.io/
+
+nav:
+    - Accueil: index.md
+    - Spécifications: 
+        - Pyramide: ./pyramid.md
+        - Pyramide (schéma JSON): ./assets/data/pyramid.schema.json
+    - Composants du projet: 
+        - ./composants.md
+        - Librairie C++ 🔗: https://rok4.github.io/core-cpp/
+        - Librairie Python 🔗: https://rok4.github.io/core-python/
+        - Librairie Perl 🔗: https://github.com/rok4/core-perl/
+        - Serveur (C++) 🔗: https://rok4.github.io/server/
+        - Outils de prégénération (Perl) 🔗: https://github.com/rok4/pregeneration/
+        - Outils de gestion (Perl) 🔗: https://github.com/rok4/tools/
+        - Outils de génération (C++) 🔗: https://rok4.github.io/generation/
+        - Nouveaux outils de gestion (Python) 🔗: https://rok4.github.io/pytools/
+        - Tile Matrix Sets (JSON) 🔗: https://github.com/rok4/tilematrixsets/
+        - Styles (JSON) 🔗: https://github.com/rok4/styles/
+
+theme:
+    logo: https://rok4.github.io/assets/images/rok4-carre.png
+    favicon: https://rok4.github.io/assets/images/rok4-carre.png
+    name: material
+    features:
+        - navigation.tabs
+        - navigation.tabs.sticky
+    locale: fr
+
+plugins:
+    - mermaid2
+
+extra_css:
+    - assets/css/style.css
+
+markdown_extensions:
+    - attr_list
+    - md_in_html
