@@ -65,7 +65,7 @@ Exemple du quadrillage Web Mercator, utilisé sur le site Géoportail (cliquer s
 <link rel="stylesheet" href="https://ignf.github.io/geoportal-extensions/openlayers-latest/dist/GpPluginOpenLayers.css" />
 <script src="./assets/js/ol.js"></script>
 <script 
-    data-url="./assets/js/autoconf.json"
+    data-key="decouverte,essentiels"
     src="https://ignf.github.io/geoportal-extensions/openlayers-latest/dist/GpPluginOpenLayers.js">
 </script>
 <script src="./assets/js/tms.js"></script>
