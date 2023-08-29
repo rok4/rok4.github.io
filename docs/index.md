@@ -69,3 +69,7 @@ Exemple du quadrillage Web Mercator, utilisé sur le site Géoportail (cliquer s
     src="https://ignf.github.io/geoportal-extensions/openlayers-latest/dist/GpPluginOpenLayers.js">
 </script>
 <script src="./assets/js/tms.js"></script>
+
+## Guides d'utilisation
+
+Des tutoriels seront mis à disposition sur ce site, et leur liste sera disponible sur la page [Tutoriels d'utilisation de la suite Rok4](./tutorials.md).
