@@ -3,7 +3,10 @@
 Des guides d'utilisation des différentes focntionnalités de la suite Rok4 seront petit à petit ajoutés à ce site.
 Cette page les recense.
 
-*Aucun guide disponible à l'heure actuelle.*
+## Guides de génération
+### Outils perl
+
+* [Génération d'une pyramide MNT RGEALTI avec les outils perl de la suite rok4](./tutorials_dir/generation_mnt_rgealti_perl.md)
 
 
 ## Ajout d'un nouveau guide
