@@ -72,4 +72,4 @@ Exemple du quadrillage Web Mercator, utilisé sur le site Géoportail (cliquer s
 
 ## Guides d'utilisation
 
-Des tutoriels seront mis à disposition sur ce site, et leur liste sera disponible sur la page [Tutoriels d'utilisation de la suite Rok4](./tutorials.md).
+Des tutoriels seront mis à disposition sur ce site, et leur liste sera disponible sur la page [Tutoriels d'utilisation de la suite Rok4](./tutorials/index.md).

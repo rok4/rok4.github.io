@@ -1,7 +1,7 @@
 # Génération d'une pyramide MNT RGEALTI avec les outils perl de la suite rok4
 ## Construction de l'image docker
 
-L'image docker sera construite d'après le fichier [Dockerfile](./generation_mnt_rgealti_perl_assets/Dockerfile) joint.
+L'image docker sera construite d'après le fichier [Dockerfile](./Dockerfile) joint.
 Un accès internet par docker est requis lors du build. (Attention donc en cas d'utilisation d'un VPN ou d'un proxy.)
 
 Dans le dossier qui servira de contexte de build, créer un dossier `dpkg/`. Y placer les fichiers debians récupérés sur les pages suivantes.
@@ -72,7 +72,7 @@ Dans le cas de `RGEALTI_2-0_1M_ASC_LAMB93-IGN69_D014_2023-01-03/RGEALTI/1_DONNEE
 Les volumes nommés sont là pour indiquer les dossiers utilisés par la configuration fournie, et à mutualiser en cas de parallélisation de la génération sur plusieurs conteneurs. Ne pas hésiter à utiliser des volumes liés en cas de volonté de récupération des fichiers, ou aucun volume en cas d'éxécution sur un seul conteneur sans récupération des données.
 Le volume lié référence l'emplacement des données source sur le système hôte.
 
-Le fichier de configuration, [be4.conf](./generation_mnt_rgealti_perl_assets/be4.conf) est fourni avec ce document.
+Le fichier de configuration de be4, [conf.json](./conf.json), est fourni avec ce document.
 
 NB: La propriété `"process"/"style"` ne doit pas être définie pour une sortie à un seul canal comme. A l'heure actuelle, les styles disponibles ne concernent en effet que des sorties à 3 ou 4 canaux.
 
@@ -83,18 +83,18 @@ Un script unique "main.sh" gère l'exécution des différents scripts de traitem
 Pour créer les scripts shell :
 
 ```bash
-docker run -v rok4gen:/tmp/rok4 -v rok4data:/data/rok4 -v ${dossier_images_tiff}:/data/RGEALTI -v ${fichier_de_configuration}:/tmp/config/be4.conf --rm local/rok4_perl_gen be4.pl --conf=/tmp/config/be4.conf
+docker run -v rok4gen:/tmp/rok4 -v rok4data:/data/rok4 -v ${dossier_images_tiff}:/data/RGEALTI -v ${fichier_de_configuration}:/tmp/config/conf.json --rm local/rok4_perl_gen be4.pl --conf=/tmp/config/conf.json
 ```
 
 Puis, pour les exécuter :
 
 ```bash
-docker run -v rok4gen:/tmp/rok4 -v rok4data:/data/rok4 -v ${dossier_images_tiff}:/data/RGEALTI -v ${fichier_de_configuration}:/tmp/config/be4.conf --rm local/rok4_perl_gen bash /tmp/rok4/scripts/main.sh
+docker run -v rok4gen:/tmp/rok4 -v rok4data:/data/rok4 -v ${dossier_images_tiff}:/data/RGEALTI -v ${fichier_de_configuration}:/tmp/config/conf.json --rm local/rok4_perl_gen bash /tmp/rok4/scripts/main.sh
 ```
 
 Dans l'exemple de configuration fourni, la parallélisation n'est pas active, et la pyramide en sortie comporte 9 niveaux, ce script gèrera donc l'exécution de 10 sous-scripts : 1 par niveau, puis le script de finalisation de la pyramide.
 De manière générale, le nombre de scripts (autres que main.sh) à exécuter est : `process.parallelization * nombre_niveaux + 1`.
 Il est possible de ne pas utiliser `main.sh`, et d'exécuter séparément chacun de ces scripts. Dans ce cas, il faut veiller à rendre le dossier des sources accessible en lecture, et les dossiers de travail et de destination accessible en lecture et écriture, et cela pour tous les scripts exécutés, même s'ils sont exécutés en parallèle.Le script de finalisation doit être exécuté quand tout les autres scripts cités sont terminés avec succès.
 
-La pyramide obtenue est ainsi prête à être utilisée par une couche de webservice du serveur de diffusion rok4, une autre génération, ou toute autre application s'ppuyant sur le format rok4.
+La pyramide obtenue est ainsi prête à être utilisée par une couche de webservice du serveur de diffusion rok4, une autre génération, ou toute autre application s'appuyant sur le format rok4.
 
