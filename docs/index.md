@@ -35,6 +35,17 @@ Des [styles](https://github.com/rok4/styles) et des [tile matrix sets](https://g
 
 Des [configurations Docker](https://github.com/rok4/docker) sont également disponibles pour permettre la compilation des applicatifs sous forme d'image docker, ainsi que l'utilisation des images pour tester le fonctionnement de ces applicatifs.
 
+Des paquets debian sont également disponibles pour ubuntu 20.04 et parfois 22.04 pour une installation simple via apt avec gestion automatique des dépendances. En cas d'installation de cette manière, les fichiers seront répartis de la manière suivante :
+
+* exécutables : directement dans le dossier système `/usr/bin/`
+* bibliothèques C++ : dans le dossier dédié `/usr/include/rok4`
+* libs dynamiques `.so` : directement dans le dossier système `/usr/lib/x86_64-linux-gnu`
+* libs Perl : dans le dossier dédié `/usr/lib/perl5/ROK4`
+* styles : dans le dossier dédié `/usr/share/rok4/styles`
+* TMS : dans le dossier dédié `/usr/share/rok4/tilematrixsets`
+
+(Attention: cette liste n'est peut-être pas encore exhaustive.)
+
 ## Les données
 
 Les données dans la pyramide sont tuilées selon un quadrillage défini dans le TileMatrixSet.
