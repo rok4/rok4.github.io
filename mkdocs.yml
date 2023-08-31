@@ -19,6 +19,9 @@ nav:
       - Nouveaux outils de gestion (Python) 🔗: https://rok4.github.io/pytools/
       - Tile Matrix Sets (JSON) 🔗: https://github.com/rok4/tilematrixsets/
       - Styles (JSON) 🔗: https://github.com/rok4/styles/
+  - Tutoriels:
+      - ./tutorials/index.md
+      - Génération de données MNT: ./tutorials/generation_mnt_rgealti_perl/index.md
 
 theme:
   logo: https://rok4.github.io/assets/images/rok4-carre.png
@@ -43,3 +46,6 @@ markdown_extensions:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
+
+extra:
+    homepage: https://rok4.github.io
