@@ -37,6 +37,7 @@ plugins:
 
 extra_css:
   - assets/css/style.css
+  - assets/css/commun.css
 
 markdown_extensions:
   - attr_list
